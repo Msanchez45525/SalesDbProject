@@ -7,7 +7,7 @@ namespace SalesLibrary
 {
    public class Connection
     {
-
+        internal SqlConnection Sqlconn;
 
         public SqlConnection SqlConn { get; set; }
 
