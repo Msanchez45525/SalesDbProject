@@ -21,11 +21,10 @@ namespace SalesDbProject
 
         public bool Create(Customer customer)
         {
-            var sql = $"INSERT into Customers " +
-                " (Name, City, State, Sales, Active) " +
-                " VALUES " + $" (@name, @city, @state, @sales, " +
-                $" @active); ";
+            var sql = $"INSERT into Customers"  +
+                " (Name, City, State, Sales, Active) " + " VALUES ( @name, @city, @state, @sales,  @active); ";
             var sqlcmd = new SqlCommand(sql, connection.SqlConn);
+            sqlcmd.Parameters.AddWithValue("@Id", customer.Id);
             sqlcmd.Parameters.AddWithValue("@name", customer.Name);
             sqlcmd.Parameters.AddWithValue("@city", customer.City);
             sqlcmd.Parameters.AddWithValue("@state", customer.State);

@@ -32,7 +32,15 @@ namespace SalesLibrary
 
         }
 
-
+        public void Disconnect()
+        {
+            if (SqlConn == null)
+            {
+                return;
+            }
+            SqlConn.Close();
+            SqlConn = null;
+        }
 
 
 
