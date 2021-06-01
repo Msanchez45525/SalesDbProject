@@ -3,29 +3,69 @@ using SalesLibrary;
 
 namespace SalesDbProject
 {
-   public class Program
+    public class Program
     {
         static void Main(string[] args)
         {
 
-            
-                var connection = new Connection("localhost\\sqlexpress01", "SalesDb");
+
+            //var connection = new Connection("localhost\\sqlexpress01", "SalesDb");
+            //var customerctrl = new CustomerController(connection);
+            //var newcusty = new Customer()
+            //{
+            //    Id = 0,
+            //    Name = "Fred",
+            //    City = "Tampa",
+            //    State = "FL",
+            //    Sales = 1000,
+            //    Active = true
+            //};
+            //var newcustomerworked = customerctrl.Create(newcusty);
+            //connection.Disconnect();
+
+
+
+
+            { 
+            var connection = new Connection("localhost\\sqlexpress01", "SalesDb");
             var customerctrl = new CustomerController(connection);
-            var newcusty = new Customer()
-            {
-                Id = 0,
-                Name = "Fred",
-                City = "Tampa",
-                State = "FL",
-                Sales = 1000,
-                Active = true
-            };
-            var newcustomerworked = customerctrl.Create(newcusty);
-            connection.Disconnect();
+            var customer = customerctrl.GetByPk(39);
+                customerctrl.Delete(customer);
+                var success = customerctrl.Delete(customer);
 
 
-           
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         }
-    }
+
+      
+
+
+
+
+
+
+        }
+       
+
+
+
+
+
+   
 }

@@ -52,7 +52,7 @@ namespace SalesDbProject
             var user = new Customer()
             {
                 Id = Convert.ToInt32(sqldatareader["Id"]),
-                Name = Convert.ToString(sqldatareader["Mane"]),
+                Name = Convert.ToString(sqldatareader["Name"]),
                 City = Convert.ToString(sqldatareader["City"]),
                 State = Convert.ToString(sqldatareader["State"]),
                 Sales = Convert.ToDecimal(sqldatareader["Sales"]),
@@ -127,7 +127,7 @@ namespace SalesDbProject
 
         public bool Delete(Customer customer)
         {
-            var sql = $"Delete from Customers" +
+            var sql = $" Delete from Customers " +
                 "Where Id = @id";
             var sqlcmd = new SqlCommand(sql, connection.SqlConn);
             sqlcmd.Parameters.AddWithValue("@id", customer.Id);
